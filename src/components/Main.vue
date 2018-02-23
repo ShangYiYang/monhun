@@ -80,8 +80,11 @@ export default {
     height: 100vh;
     background-color:gray;
     width: 250px;
-    transition: all 1s;
-    /*left: -25%;*/
+    -webkit-transition: all .25s;
+    -moz-transition: all .25s;
+    -ms-transition: all .25s;
+    -o-transition: all .25s;
+    transition: all .25s;
     margin-left: -250px;
   }
 
