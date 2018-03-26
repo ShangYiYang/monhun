@@ -1,8 +1,12 @@
 <template>
   <div ref="app" id="app">
-    <ul>
-      <li><div><router-link to="/"> Main </router-link></div></li>
-    </ul>
+    <div id="navbar">
+      <md-tabs id="nav">
+        <md-tab id="main" md-label="Main" to="/"></md-tab>
+        <md-tab id="old" md-label="OldMain" to="/old"></md-tab>
+        <md-tab id="gen" md-label="Auto" to="/gen"></md-tab>
+      </md-tabs>
+    </div>
     <router-view/>
   </div>
 </template>
@@ -52,5 +56,9 @@ export default {
   }
   #toggleOn {
     background-color: mediumpurple;
+  }
+
+  #nav {
+    background-color: powderblue;
   }
 </style>
