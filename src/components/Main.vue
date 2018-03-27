@@ -3,12 +3,17 @@
     <div class="md-layout-item md-size-20" id="side"></div>
 
     <div class="md-layout md-layout-item md-size-80" id="mixer">
-      <div class="md-layout md-layout-item md-gutter" id="pieces">
-        <div class="md-layout-item armor"></div>
-        <div class="md-layout-item armor"></div>
-        <div class="md-layout-item armor"></div>
-        <div class="md-layout-item armor"></div>
-        <div class="md-layout-item armor"></div>
+      <div class="md-layout md-layout-item md-gutter md-size-100" id="pieces">
+        <div class="md-layout-item armor md-size-20"></div>
+        <div class="md-layout-item armor md-size-20"></div>
+        <div class="md-layout-item armor md-size-20"></div>
+        <div class="md-layout-item armor md-size-20"></div>
+        <div class="md-layout-item armor md-size-20"></div>
+      </div>
+      <div class="md-layout-item md-size-100" id="sBar">
+        <md-autocomplete v-model="selectedCountry" :md-options="countries">
+          <label>Search</label>
+        </md-autocomplete>
       </div>
     </div>
   </div>
@@ -16,7 +21,15 @@
 
 <script>
   export default {
-    name: "main"
+    name: "main",
+    data: () => ({
+      selectedCountry: null,
+      countries: [
+        'One',
+        'Two',
+        'Three'
+      ]
+    })
   }
 </script>
 
@@ -51,6 +64,12 @@
     display: block;
     background: #ef9a9a;
     content: " ";
+  }
+
+  #sBar {
+    padding-top: 200px;
+    width: 80%;
+    border-bottom: black;
   }
 
 </style>
