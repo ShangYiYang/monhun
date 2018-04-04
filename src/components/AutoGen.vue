@@ -1,12 +1,14 @@
 <template>
   <div id="content">
-    <md-autocomplete v-model="modelInit" :md-options="skills" :md-open-on-focus="false" id="searchBar">
-      <label>Skills</label>
-    </md-autocomplete>
-    <md-button class="md-dense md-raised md-primary" v-on:click="listArmors">List Armors</md-button>
-    <md-button class="md-dense md-raised md-primary" v-on:click="addArmor('Attack')">Generate Attack</md-button>
-    <md-button class="md-dense md-raised md-primary" v-on:click="clearData">Clear</md-button>
-    <md-content>
+    <div id="options">
+      <md-autocomplete v-model="modelInit" :md-options="skills" :md-open-on-focus="false" id="searchBar">
+        <label>Skills</label>
+      </md-autocomplete>
+      <md-button class="md-dense md-raised md-primary" v-on:click="listArmors">List Armors</md-button>
+      <md-button class="md-dense md-raised md-primary" v-on:click="addArmor('Attack')">Generate Attack</md-button>
+      <md-button class="md-dense md-raised md-primary" v-on:click="clearData">Clear</md-button>
+    </div>
+    <div id="display" v-for="i in 10">
       <div class="md-layout">
         <div class="md-layout-item">
           <md-table>
@@ -39,7 +41,7 @@
           </md-table>
         </div>
       </div>
-    </md-content>
+    </div>
   </div>
 </template>
 
@@ -65,6 +67,33 @@
             {'Name': 'Eva 1', 'Skills': [{'SkillName': 'Evade', 'Level': 1}]},
             {'Name': 'Handi 1', 'Skills': [{'SkillName': 'Handicraft', 'Level': 1}]},
             {'Name': 'CritEye 1', 'Skills': [{'SkillName': 'Critical Eye', 'Level': 1}]}
+          ],
+          head: [
+            {'Name': 'Atk 1', 'Skills': [{'SkillName': 'Attack', 'Level': 1}]},
+            {'Name': 'Atk 2', 'Skills': [{'SkillName': 'Attack', 'Level': 2}]},
+            {'Name': 'Atk 3', 'Skills': [{'SkillName': 'Attack', 'Level': 3}]}
+          ],
+          chest: [
+            {'Name': 'Atk 1', 'Skills': [{'SkillName': 'Attack', 'Level': 1}]},
+            {'Name': 'Atk 2', 'Skills': [{'SkillName': 'Attack', 'Level': 2}]},
+            {'Name': 'Atk 3', 'Skills': [{'SkillName': 'Attack', 'Level': 3}]}
+          ],
+          legs: [
+            {'Name': 'Def 1', 'Skills': [{'SkillName': 'Defense', 'Level': 1}]},
+            {'Name': 'Eva 1', 'Skills': [{'SkillName': 'Evade', 'Level': 1}]},
+            {'Name': 'Handi 1', 'Skills': [{'SkillName': 'Handicraft', 'Level': 1}]},
+            {'Name': 'CritEye 1', 'Skills': [{'SkillName': 'Critical Eye', 'Level': 1}]}
+          ],
+          arms: [
+            {'Name': 'Def 1', 'Skills': [{'SkillName': 'Defense', 'Level': 1}]},
+            {'Name': 'Eva 1', 'Skills': [{'SkillName': 'Evade', 'Level': 1}]},
+            {'Name': 'Handi 1', 'Skills': [{'SkillName': 'Handicraft', 'Level': 1}]},
+            {'Name': 'CritEye 1', 'Skills': [{'SkillName': 'Critical Eye', 'Level': 1}]}
+          ],
+          waist: [
+            {'Name': 'Atk 1', 'Skills': [{'SkillName': 'Attack', 'Level': 1}]},
+            {'Name': 'Atk 2', 'Skills': [{'SkillName': 'Attack', 'Level': 2}]},
+            {'Name': 'Atk 3', 'Skills': [{'SkillName': 'Attack', 'Level': 3}]}
           ],
           generated: []
         }),
@@ -93,6 +122,11 @@
               var data = [temp.Name, temp.Skills[0].SkillName, temp.Skills[0].Level];
                 gen.push(data);
             }
+          },
+          genSets: function(skills) {
+            this.clearData();
+            var armorData = this.$data.armor;
+            var gen = this.$data.generated;
           }
       },
       beforeMount() {
@@ -105,7 +139,6 @@
   #content {
     margin: auto;
     width: 80%;
-    background-color: pink;
     text-align: center;
   }
 
@@ -125,4 +158,12 @@
     background-color: white;
   }
 
+  #options {
+    margin-bottom: 10px;
+  }
+
+  #display {
+    background-color: pink;
+    margin-bottom: 10px;
+  }
 </style>
