@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+> No longer being updated
+
 ## Build Setup
 
 ``` bash
